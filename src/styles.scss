@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap");
+@import './carbon.scss';
+$colHeight: 4rem;
+$hover-color: #ba1b23;
+$colors: (
+  "1": #161616,
+  "2": #0f62fe
+);
+
+.bx--grid {
+  margin: 1rem auto;
+}
+
+div[class*="bx--col"] {
+  position: relative;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: $colHeight;
+  border: 1px solid #ffffff;
+  font-family: "IBM Plex Sans", sans-serif;
+  line-height: $colHeight;
+  color: #fff;
+  transition: background-color 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0.14, 1, 1);
+  @each $i, $color in $colors {
+    &:nth-child(#{$i}) {
+      background-color: $color;
+    }
+  }
+  &.bg-remove {
+    background-color: $hover-color;
+    user-select: none;
+    transition: background-color 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0.14, 1, 1);
+  }
+}
